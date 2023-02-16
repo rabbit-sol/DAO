@@ -6,14 +6,14 @@ import Link from 'next/link'
 
 const DaoAddress = "0xDDe908187320A1a0B37A09786180527052902b4b"
 
-const proposal: NextPage = () => {
+const Proposal: NextPage = () => {
 
     const { contract } = useContract(DaoAddress);
     const address = useAddress();
 
     const [proposal, setProposal] = useState("")
     const [desc, setDesc] = useState("")
-    const [proposalId, setProposalId] = useState(1)
+    const [proposalId, setProposalId] = useState("0")
     const [status, setStatus] = useState("")
 
     const { data: approvedUser } = useContractRead(contract, "approvedUsers", address)
@@ -48,9 +48,11 @@ const proposal: NextPage = () => {
         try {
             const data = await voteForProposal([proposalId, _vote]);
             console.info("contract call successs", data);
-        } catch (err) {
-            console.error("contract call failure", err.reason);
-            setStatus(err.reason)
+        }
+        catch (e) {
+
+            ``
+            setStatus(e.reason)
         }
     }
 
@@ -80,7 +82,13 @@ const proposal: NextPage = () => {
                     </>
                 )}
 
-    
+    useEffect(() => {
+        const init = async () => {
+
+        }
+
+        init()
+    }, [])
 
   
     return (
@@ -113,7 +121,7 @@ const proposal: NextPage = () => {
                 <div>
                 
                 <div className={styles.grid}>
-                     
+                     proposalId
                     <div className={styles.card}>
                             <div className={styles.card}>
                                 <h3 className={styles.title1}>
@@ -153,4 +161,4 @@ const proposal: NextPage = () => {
     );
 };
 
-export default proposal;
+export default Proposal;
