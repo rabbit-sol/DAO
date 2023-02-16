@@ -13,7 +13,7 @@ const Proposal: NextPage = () => {
 
     const [proposal, setProposal] = useState("")
     const [desc, setDesc] = useState("")
-    const [proposalId, setProposalId] = useState("0")
+    const [proposalId, setProposalId] = useState("1")
     const [status, setStatus] = useState("")
 
     const { data: approvedUser } = useContractRead(contract, "approvedUsers", address)
