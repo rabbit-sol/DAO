@@ -121,7 +121,7 @@ const Proposal: NextPage = () => {
                 <div>
                 
                 <div className={styles.grid}>
-                     proposalId
+                    
                     <div className={styles.card}>
                             <div className={styles.card}>
                                 <h3 className={styles.title1}>
